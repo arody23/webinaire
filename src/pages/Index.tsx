@@ -3,6 +3,8 @@ import { HeroSection } from "@/components/HeroSection";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { AboutSection } from "@/components/AboutSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { WhyAttendSection } from "@/components/WhyAttendSection";
+import { WhatYouGetSection } from "@/components/WhatYouGetSection";
 import { UrgencySection } from "@/components/UrgencySection";
 
 const Index = () => {
@@ -17,6 +19,8 @@ const Index = () => {
       <HeroSection onRegisterClick={scrollToRegistration} />
       <AboutSection />
       <BenefitsSection />
+      <WhyAttendSection onRegisterClick={scrollToRegistration} />
+      <WhatYouGetSection onRegisterClick={scrollToRegistration} />
       <UrgencySection onRegisterClick={scrollToRegistration} />
       
       <section ref={registrationRef} className="py-20 bg-gradient-hero">
