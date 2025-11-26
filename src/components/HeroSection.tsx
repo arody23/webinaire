@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Users, TrendingUp } from "lucide-react";
-import heroImage from "@/assets/hero-webinar.jpg";
+import heroImage from "@/assets/aroman-pro.jpg";
 
 interface HeroSectionProps {
   onRegisterClick: () => void;
