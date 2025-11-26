@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useRef } from "react";
+import { HeroSection } from "@/components/HeroSection";
+import { RegistrationForm } from "@/components/RegistrationForm";
+import { AboutSection } from "@/components/AboutSection";
+import { BenefitsSection } from "@/components/BenefitsSection";
+import { UrgencySection } from "@/components/UrgencySection";
 
 const Index = () => {
+  const registrationRef = useRef<HTMLElement>(null);
+
+  const scrollToRegistration = () => {
+    registrationRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <HeroSection onRegisterClick={scrollToRegistration} />
+      <AboutSection />
+      <BenefitsSection />
+      <UrgencySection onRegisterClick={scrollToRegistration} />
+      
+      <section ref={registrationRef} className="py-20 bg-gradient-hero">
+        <div className="container mx-auto px-4">
+          <RegistrationForm />
+        </div>
+      </section>
+
+      <footer className="py-8 border-t border-border/50">
+        <div className="container mx-auto px-4 text-center text-muted-foreground">
+          <p>© 2024 Aroman Emetshu - Orbis Creativa Agency. Tous droits réservés.</p>
+        </div>
+      </footer>
     </div>
   );
 };
