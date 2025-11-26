@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Calendar, Clock, Users } from "lucide-react";
+import { AlertCircle, Calendar, Clock } from "lucide-react";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 interface UrgencySectionProps {
   onRegisterClick: () => void;
@@ -29,34 +30,28 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
               {/* Main Message */}
               <div>
                 <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
-                  Places <span className="text-accent">Extrêmement Limitées</span>
+                  Le Webinaire Commence <span className="text-accent">Bientôt</span>
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Pour garantir une expérience de qualité et un accompagnement personnalisé, 
-                  nous limitons ce webinaire à seulement 27 participants.
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+                  Ne manquez pas cette opportunité unique. Inscrivez-vous maintenant avant qu'il ne soit trop tard !
                 </p>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid md:grid-cols-3 gap-6 py-6">
-                <div className="text-center">
-                  <div className="flex justify-center mb-3">
-                    <div className="p-3 bg-primary/10 rounded-xl">
-                      <Users className="w-6 h-6 text-primary" />
-                    </div>
-                  </div>
-                  <div className="text-3xl font-bold text-accent mb-1">27</div>
-                  <p className="text-sm text-muted-foreground">Places Disponibles</p>
-                </div>
+              {/* Countdown Timer */}
+              <div className="py-8">
+                <CountdownTimer />
+              </div>
 
+              {/* Stats Grid */}
+              <div className="grid md:grid-cols-2 gap-6 py-6 max-w-2xl mx-auto">
                 <div className="text-center">
                   <div className="flex justify-center mb-3">
                     <div className="p-3 bg-accent/10 rounded-xl">
                       <Calendar className="w-6 h-6 text-accent" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-1">Bientôt</div>
-                  <p className="text-sm text-muted-foreground">Date Annoncée Prochainement</p>
+                  <div className="text-3xl font-bold text-primary mb-1">En Direct</div>
+                  <p className="text-sm text-muted-foreground">Session Interactive</p>
                 </div>
 
                 <div className="text-center">
@@ -65,8 +60,8 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-accent mb-1">GRATUIT</div>
-                  <p className="text-sm text-muted-foreground">Événement Exclusif</p>
+                  <div className="text-3xl font-bold text-accent mb-1">100% GRATUIT</div>
+                  <p className="text-sm text-muted-foreground">Valeur Inestimable</p>
                 </div>
               </div>
 
