@@ -86,17 +86,14 @@ export const HeroSection = ({ onRegisterClick }: HeroSectionProps) => {
 
           {/* CTA Button */}
           <div className="pt-4">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              onClick={onRegisterClick}
-              className="text-lg shadow-elegant"
-            >
-              Réserver Ma Place Maintenant
-            </Button>
-            <p className="text-sm text-muted-foreground mt-4">
-              ⚡ Seulement <span className="text-accent font-bold">27 places</span> disponibles
-            </p>
+          <Button 
+            variant="hero" 
+            size="lg" 
+            onClick={onRegisterClick}
+            className="text-lg shadow-elegant"
+          >
+            Réserver Ma Place Maintenant
+          </Button>
           </div>
         </div>
       </div>

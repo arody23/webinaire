@@ -96,23 +96,8 @@ export const AboutSection = () => {
             </CardContent>
           </Card>
 
-          {/* Stats Cards */}
-          <Card className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-primary/10 rounded-2xl">
-                  <Award className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">50+</div>
-                  <p className="text-muted-foreground">Projets réalisés</p>
-                  <Badge className="mt-2 bg-primary/20 text-primary border-primary/30">Taux de succès 98%</Badge>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-accent-glow">
+          {/* Stats Card */}
+          <Card className="md:col-span-2 bg-card/50 backdrop-blur border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-accent-glow">
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="p-4 bg-accent/10 rounded-2xl">
