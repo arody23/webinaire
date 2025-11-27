@@ -66,14 +66,14 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
               </div>
 
               {/* CTA */}
-              <div className="pt-4">
+              <div className="pt-4 flex flex-col items-center">
                 <Button 
                   variant="accent" 
                   size="lg" 
                   onClick={onRegisterClick}
                   className="text-lg shadow-elegant"
                 >
-                  Je Réserve Ma Place Maintenant
+                  Je Réserve Ma Place Gratuite
                 </Button>
                 <p className="text-sm text-muted-foreground mt-4">
                   ⏰ Ne manquez pas cette opportunité unique
