@@ -53,9 +53,9 @@ export const AboutSection = () => {
               <img 
                 src={aromanFollowers} 
                 alt="117K+ Followers - Preuve Sociale"
-                className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[500px] object-contain bg-muted/20 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <Badge className="mb-3 bg-accent/90 text-accent-foreground border-0">
                   <Users2 className="w-4 h-4 mr-2" />
@@ -103,9 +103,9 @@ export const AboutSection = () => {
               <img 
                 src={aromanInfluence} 
                 alt="Influence Terrain - Événements et Partenariats"
-                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-[500px] md:h-[600px] object-contain bg-muted/20 group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <Badge className="mb-3 bg-accent/90 text-accent-foreground border-0">
                   <Briefcase className="w-4 h-4 mr-2" />
