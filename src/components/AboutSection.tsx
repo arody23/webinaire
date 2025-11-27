@@ -4,6 +4,7 @@ import { Award, Briefcase, Users2, Verified, CheckCircle2 } from "lucide-react";
 import aromanProImage from "@/assets/aroman-pro-2.jpg";
 import aromanFollowers from "@/assets/aroman-followers.jpg";
 import aromanContrat from "@/assets/aroman-contrat.jpg";
+import aromanInfluence from "@/assets/aroman-influence-terrain.jpg";
 
 export const AboutSection = () => {
   return (
@@ -96,17 +97,24 @@ export const AboutSection = () => {
             </CardContent>
           </Card>
 
-          {/* Stats Card */}
-          <Card className="md:col-span-2 bg-card/50 backdrop-blur border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-accent-glow">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-accent/10 rounded-2xl">
-                  <Briefcase className="w-8 h-8 text-accent" />
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">5+ ans</div>
-                  <p className="text-muted-foreground">D'expérience terrain</p>
-                  <Badge className="mt-2 bg-accent/20 text-accent border-accent/30">Résultats prouvés</Badge>
+          {/* Experience Card with Image */}
+          <Card className="md:col-span-2 bg-card/50 backdrop-blur border-border/50 overflow-hidden group hover:shadow-accent-glow transition-all duration-500">
+            <CardContent className="p-0 relative">
+              <img 
+                src={aromanInfluence} 
+                alt="Influence Terrain - Événements et Partenariats"
+                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <Badge className="mb-3 bg-accent/90 text-accent-foreground border-0">
+                  <Briefcase className="w-4 h-4 mr-2" />
+                  Influence Terrain
+                </Badge>
+                <div className="space-y-2">
+                  <div className="text-3xl font-bold text-foreground">5+ ans</div>
+                  <p className="text-muted-foreground">D'expérience sur le terrain</p>
+                  <p className="text-sm text-foreground/80 mt-2">Partenariats majeurs, événements d'envergure, résultats concrets</p>
                 </div>
               </div>
             </CardContent>
