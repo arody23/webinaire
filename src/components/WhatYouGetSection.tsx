@@ -100,14 +100,16 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Ne manquez pas cette opportunité unique de transformer votre passion en business
           </p>
-          <Button
-            variant="hero"
-            size="lg"
-            onClick={onRegisterClick}
-            className="text-xl shadow-elegant animate-float"
-          >
-            🎯 Je Réserve Ma Place Gratuitement
-          </Button>
+          <div className="flex justify-center">
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={onRegisterClick}
+              className="text-xl shadow-elegant animate-float"
+            >
+              🎯 Je Réserve Ma Place Gratuitement
+            </Button>
+          </div>
         </div>
       </div>
     </section>
