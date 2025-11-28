@@ -51,20 +51,20 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
         <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
-        <div className="text-center mb-16">
-          <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 mb-6 animate-bounce">
+      <div className="container mx-auto px-3 sm:px-4 max-w-6xl relative z-10">
+        <div className="text-center mb-12 sm:mb-16">
+          <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 mb-4 sm:mb-6 animate-bounce text-xs sm:text-sm">
             Valeur Totale: INESTIMABLE
           </Badge>
-          <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-foreground mb-4 sm:mb-6 leading-tight">
             Ce Que Vous Allez <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Recevoir</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
             Un événement gratuit avec une valeur incroyable pour votre carrière de créateur
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-12">
           {benefits.map((benefit, index) => (
             <Card
               key={index}
@@ -93,11 +93,11 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
           ))}
         </div>
 
-        <div className="text-center bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 md:p-12 border-2 border-primary/20">
-          <h3 className="text-3xl md:text-4xl font-black text-foreground mb-4">
+        <div className="text-center bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-6 sm:p-8 md:p-12 border-2 border-primary/20">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground mb-3 sm:mb-4 leading-tight px-2">
             Tout Cela <span className="text-accent">100% GRATUIT</span>
           </h3>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Ne manquez pas cette opportunité unique de transformer votre passion en business
           </p>
           <div className="flex justify-center">
@@ -105,7 +105,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
               variant="hero"
               size="lg"
               onClick={onRegisterClick}
-              className="text-xl shadow-elegant animate-float"
+              className="text-sm sm:text-base md:text-lg shadow-elegant animate-float px-4 sm:px-6 py-2.5 sm:py-3 whitespace-normal break-words max-w-xs sm:max-w-sm"
             >
               🎯 Je Réserve Ma Place Gratuitement
             </Button>

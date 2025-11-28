@@ -17,12 +17,11 @@ export const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    // Set target date to 30 days from now
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
+    // Set target date to December 20, 2025
+    const targetDate = new Date("2025-12-20T00:00:00").getTime();
 
     const calculateTimeLeft = () => {
-      const difference = targetDate.getTime() - new Date().getTime();
+      const difference = targetDate - new Date().getTime();
 
       if (difference > 0) {
         setTimeLeft({
@@ -30,6 +29,13 @@ export const CountdownTimer = () => {
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
+        });
+      } else {
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
         });
       }
     };

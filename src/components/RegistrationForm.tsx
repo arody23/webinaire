@@ -43,9 +43,21 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
     setIsLoading(true);
 
     try {
-      // TODO: Here you'll connect to backend (Lovable Cloud) or Zapier webhook
-      // For now, simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send to Formspree
+      const response = await fetch("https://formspree.io/f/mwpdwazw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          whatsapp,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'inscription");
+      }
 
       console.log("Registration:", { fullName, whatsapp });
       
