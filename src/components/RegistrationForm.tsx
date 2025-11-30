@@ -158,7 +158,7 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
     setIsLoading(true);
 
     try {
-      // Send to Formspree
+      // Send to Formspree with Zapier webhook
       const response = await fetch("https://formspree.io/f/mwpdwazw", {
         method: "POST",
         headers: {
@@ -167,6 +167,7 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
         body: JSON.stringify({
           fullName,
           whatsapp,
+          _webhook: "https://hooks.zapier.com/hooks/catch/23458134/ukim348/",
         }),
       });
 
