@@ -1,11 +1,5 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2, Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 
 interface RegistrationFormProps {
   onSuccess?: () => void;
@@ -122,103 +116,84 @@ const COUNTRY_CODES = [
   { name: "Vatican", code: "+39" },
 ];
 
-const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxw5uuCCgVEXqCDa0JaON-Ru7kBdH3biFXL048ER6uw5vqJxbKuBeT7Orh1AgKEVdPa/exec";
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwnAKk7-fjlXx-AxqcPJvlCCDCbpG9zvfFhr90OEfynDZDST18PMhW_5ks_JGb1hdt6/exec";
 
 export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
-  const [fullName, setFullName] = useState("");
-  const [countryCode, setCountryCode] = useState("+243"); // Congo par défaut
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const { toast } = useToast();
-
-  const whatsapp = `${countryCode}${phoneNumber}`.replace(/\s/g, "");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    const form = document.getElementById("monFormulaire") as HTMLFormElement;
+    const phoneCountrySelect = document.getElementById("phoneCountry") as HTMLSelectElement;
+    const phoneInput = document.getElementById("phoneInput") as HTMLInputElement;
     
-    if (!fullName.trim() || !phoneNumber.trim()) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez remplir tous les champs",
-        variant: "destructive",
-      });
-      return;
+    if (!form || !phoneCountrySelect || !phoneInput) return;
+
+    // Créer un input caché pour le numéro complet
+    let hiddenPhoneInput = document.getElementById("telephone") as HTMLInputElement;
+    if (!hiddenPhoneInput) {
+      hiddenPhoneInput = document.createElement("input");
+      hiddenPhoneInput.type = "hidden";
+      hiddenPhoneInput.name = "telephone";
+      form.appendChild(hiddenPhoneInput);
     }
 
-    // Validate phone number (basic validation)
-    const phoneRegex = /^[\d\s\-\(\)]+$/;
-    if (!phoneRegex.test(phoneNumber)) {
-      toast({
-        title: "Erreur",
-        description: "Numéro WhatsApp invalide",
-        variant: "destructive",
-      });
-      return;
-    }
+    // Mettre à jour le numéro complet quand on change le pays ou le numéro
+    const updatePhone = () => {
+      hiddenPhoneInput.value = `${phoneCountrySelect.value}${phoneInput.value}`;
+    };
 
-    setIsLoading(true);
+    phoneCountrySelect.addEventListener("change", updatePhone);
+    phoneInput.addEventListener("input", updatePhone);
 
-    try {
-      // Send to Google Apps Script
-      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        body: JSON.stringify({
-          nom: fullName,
-          telephone: whatsapp,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Erreur lors de l'inscription");
-      }
-
-      console.log("Registration:", { fullName, whatsapp });
+    const handleSubmit = (e: SubmitEvent) => {
+      e.preventDefault();
       
-      setIsSuccess(true);
-      setFullName("");
-      setPhoneNumber("");
-      
-      toast({
-        title: "Inscription réussie !",
-        description: "Vous allez recevoir un message WhatsApp de confirmation",
-      });
-      
-      if (onSuccess) {
-        onSuccess();
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      toast({
-        title: "Erreur",
-        description: "Une erreur s'est produite. Veuillez réessayer.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      const btn = form.querySelector("button[type='submit']") as HTMLButtonElement;
+      const messageContainer = document.getElementById("message-reponse") as HTMLElement;
+      const originalText = btn.innerText;
 
-  if (isSuccess) {
-    return (
-      <Card className="max-w-md mx-auto border-primary/20 bg-card/50 backdrop-blur">
-        <CardContent className="pt-10 pb-10 text-center space-y-6">
-          <div className="flex justify-center">
-            <div className="p-4 bg-primary/10 rounded-full">
-              <CheckCircle2 className="w-16 h-16 text-primary" />
+      btn.innerText = "Envoi...";
+      btn.disabled = true;
+      messageContainer.innerHTML = "";
+
+      // Envoi des données avec FormData
+      fetch(GOOGLE_APPS_SCRIPT_URL, { 
+        method: "POST", 
+        body: new FormData(form)
+      })
+        .then(() => {
+          // Succès
+          btn.innerText = "Inscription réussie !";
+          form.reset();
+          updatePhone();
+          messageContainer.innerHTML = `
+            <div class="text-center space-y-3 mt-6">
+              <div class="text-4xl">🎉</div>
+              <h3 class="text-xl font-bold text-foreground">Inscription Confirmée !</h3>
+              <p class="text-muted-foreground">Vous allez recevoir un message WhatsApp avec tous les détails du webinaire.<br/>À très bientôt !</p>
             </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-2">Inscription Confirmée ! 🎉</h3>
-            <p className="text-muted-foreground">
-              Vous allez recevoir un message WhatsApp avec tous les détails du webinaire.
-              À très bientôt !
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
+          `;
+          form.style.display = "block";
+          
+          if (onSuccess) {
+            onSuccess();
+          }
+        })
+        .catch((error) => {
+          // En cas d'erreur
+          console.error("Erreur lors de l'envoi des données:", error);
+          messageContainer.innerHTML = "❌ Erreur d'envoi. Veuillez réessayer.";
+          btn.innerText = originalText;
+          btn.disabled = false;
+        });
+    };
+
+    form.addEventListener("submit", handleSubmit as EventListener);
+
+    return () => {
+      form.removeEventListener("submit", handleSubmit as EventListener);
+      phoneCountrySelect.removeEventListener("change", updatePhone);
+      phoneInput.removeEventListener("input", updatePhone);
+    };
+  }, [onSuccess]);
 
   return (
     <Card className="max-w-md mx-auto border-primary/20 bg-card/50 backdrop-blur">
@@ -229,75 +204,54 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form id="monFormulaire" className="space-y-6">
+          {/* Nom complet */}
           <div className="space-y-2">
-            <Label htmlFor="fullname" className="text-foreground">
-              Nom Complet *
-            </Label>
-            <Input
-              id="fullname"
-              type="text"
-              placeholder="Ex: Jean Kabongo"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              required
-              className="bg-secondary/50 border-border"
+            <label className="text-sm font-medium text-foreground">Nom complet *</label>
+            <input 
+              type="text" 
+              name="nom" 
+              placeholder="Ex : Jean Kabongo" 
+              required 
+              className="w-full px-3 py-2 border border-border rounded-md bg-secondary/50 text-foreground placeholder-muted-foreground text-sm"
             />
           </div>
 
+          {/* Numéro WhatsApp avec sélecteur de pays */}
           <div className="space-y-2">
-            <Label htmlFor="whatsapp" className="text-foreground">
-              Numéro WhatsApp *
-            </Label>
+            <label className="text-sm font-medium text-foreground">Numéro WhatsApp *</label>
             <div className="flex gap-2">
-              <Select value={countryCode} onValueChange={setCountryCode}>
-                <SelectTrigger className="w-[140px] bg-secondary/50 border-border">
-                  <SelectValue placeholder="Code pays" />
-                </SelectTrigger>
-                <SelectContent className="max-h-[300px]">
-                  {COUNTRY_CODES.map((country) => (
-                    <SelectItem key={country.code} value={country.code}>
-                      {country.code} {country.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Input
-                id="whatsapp"
-                type="tel"
-                placeholder="Ex: 900 000 000"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                required
-                className="flex-1 bg-secondary/50 border-border"
+              <select 
+                id="phoneCountry"
+                defaultValue="+243"
+                className="w-[120px] px-2 py-2 border border-border rounded-md bg-secondary/50 text-foreground text-sm"
+              >
+                {COUNTRY_CODES.map((country) => (
+                  <option key={country.code} value={country.code}>
+                    {country.code} {country.name}
+                  </option>
+                ))}
+              </select>
+              <input 
+                type="tel" 
+                id="phoneInput"
+                placeholder="Ex : 900 000 000" 
+                required 
+                className="flex-1 px-3 py-2 border border-border rounded-md bg-secondary/50 text-foreground placeholder-muted-foreground text-sm"
               />
             </div>
-            <p className="text-xs text-muted-foreground">
-              Vous recevrez la confirmation sur WhatsApp
-            </p>
           </div>
-
-          <Button
-            type="submit"
-            variant="hero"
-            size="lg"
-            className="w-full"
-            disabled={isLoading}
+          
+          <button 
+            type="submit" 
+            id="btnSubmit"
+            className="w-full px-4 py-2 bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {isLoading ? (
-              <>
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                Inscription en cours...
-              </>
-            ) : (
-              "Confirmer Mon Inscription"
-            )}
-          </Button>
-
-          <p className="text-xs text-center text-muted-foreground">
-            En vous inscrivant, vous acceptez de recevoir des messages WhatsApp concernant le webinaire
-          </p>
+            Confirmer mon inscription
+          </button>
         </form>
+        
+        <div id="message-reponse" className="text-center text-sm"></div>
       </CardContent>
     </Card>
   );
