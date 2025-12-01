@@ -13,13 +13,13 @@ export const AboutSection = () => {
         {/* Title */}
         <div className="text-center mb-16 animate-fade-in">
           <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 mb-6">
-            Who is organizing this webinar?
+            Qui organise ce webinaire ?
           </Badge>
           <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Aroman Emetshu
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Influence marketing expert with over 5 years of experience
+            Expert en marketing d'influence avec plus de 5 ans d'expérience
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export const AboutSection = () => {
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <Badge className="bg-primary/90 text-primary-foreground border-0">
                   <Award className="w-4 h-4 mr-2" />
-                  Signed Contracts
+                  Contrats Signés
                 </Badge>
               </div>
             </CardContent>
@@ -109,12 +109,12 @@ export const AboutSection = () => {
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <Badge className="mb-3 bg-accent/90 text-accent-foreground border-0">
                   <Briefcase className="w-4 h-4 mr-2" />
-                  Field Influence
+                  Influence Terrain
                 </Badge>
                 <div className="space-y-2">
-                  <div className="text-3xl font-bold text-foreground">5+ years</div>
-                  <p className="text-muted-foreground">Of experience in the field</p>
-                  <p className="text-sm text-foreground/80 mt-2">Major partnerships, large-scale events, concrete results</p>
+                  <div className="text-3xl font-bold text-foreground">5+ ans</div>
+                  <p className="text-muted-foreground">D'expérience sur le terrain</p>
+                  <p className="text-sm text-foreground/80 mt-2">Partenariats majeurs, événements d'envergure, résultats concrets</p>
                 </div>
               </div>
             </CardContent>
@@ -123,9 +123,9 @@ export const AboutSection = () => {
 
         <div className="mt-12 text-center">
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Recognized influencer with major contracts in influence marketing, Aroman Emetshu shares 
-            his expertise to help African content creators monetize their audience and 
-            become financially independent.
+            Influenceur reconnu avec des contrats majeurs en marketing d'influence, Aroman Emetshu partage 
+            son expertise pour aider les créateurs de contenu africains à monétiser leur audience et 
+            devenir financièrement indépendants.
           </p>
         </div>
       </div>
