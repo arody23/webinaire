@@ -122,6 +122,8 @@ const COUNTRY_CODES = [
   { name: "Vatican", code: "+39" },
 ];
 
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxw5uuCCgVEXqCDa0JaON-Ru7kBdH3biFXL048ER6uw5vqJxbKuBeT7Orh1AgKEVdPa/exec";
+
 export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
   const [fullName, setFullName] = useState("");
   const [countryCode, setCountryCode] = useState("+243"); // Congo par défaut
@@ -158,16 +160,12 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
     setIsLoading(true);
 
     try {
-      // Send to Formspree with Zapier webhook
-      const response = await fetch("https://formspree.io/f/mwpdwazw", {
+      // Send to Google Apps Script
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({
-          fullName,
-          whatsapp,
-          _webhook: "https://hooks.zapier.com/hooks/catch/23458134/ukim348/",
+          nom: fullName,
+          telephone: whatsapp,
         }),
       });
 
@@ -178,6 +176,9 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
       console.log("Registration:", { fullName, whatsapp });
       
       setIsSuccess(true);
+      setFullName("");
+      setPhoneNumber("");
+      
       toast({
         title: "Inscription réussie !",
         description: "Vous allez recevoir un message WhatsApp de confirmation",
@@ -187,6 +188,7 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
         onSuccess();
       }
     } catch (error) {
+      console.error("Error:", error);
       toast({
         title: "Erreur",
         description: "Une erreur s'est produite. Veuillez réessayer.",
