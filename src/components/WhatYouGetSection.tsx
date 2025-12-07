@@ -11,7 +11,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
   const benefits = [
     {
       icon: Star,
-      title: "Accès Exclusif à la Plateforme",
+      title: "Accès exclusif à la plateforme",
       description: "Soyez parmi les premiers à utiliser l'outil révolutionnaire",
       badge: "Exclusif",
       color: "text-accent",
@@ -19,7 +19,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
     },
     {
       icon: Trophy,
-      title: "Certificat de Participation",
+      title: "Certificat de participation",
       description: "Validez votre expertise en marketing d'influence",
       badge: "Gratuit",
       color: "text-primary",
@@ -27,7 +27,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
     },
     {
       icon: Zap,
-      title: "Stratégies Éprouvées",
+      title: "Stratégies éprouvées",
       description: "Méthodes testées pour monétiser votre audience rapidement",
       badge: "Actionnable",
       color: "text-accent",
@@ -35,7 +35,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
     },
     {
       icon: Gift,
-      title: "Bonus Surprise",
+      title: "Bonus surprise",
       description: "Ressources et outils pour booster votre croissance",
       badge: "Surprise",
       color: "text-primary",
@@ -54,10 +54,10 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
       <div className="container mx-auto px-3 sm:px-4 max-w-6xl relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="bg-primary/20 text-primary border-primary/30 px-4 py-2 mb-4 sm:mb-6 animate-bounce text-xs sm:text-sm">
-            Valeur Totale: INESTIMABLE
+            Valeur totale: inestimable
           </Badge>
           <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-foreground mb-4 sm:mb-6 leading-tight">
-            Ce Que Vous Allez <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Recevoir</span>
+            Ce que vous allez <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">recevoir</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
             Un événement gratuit avec une valeur incroyable pour votre carrière de créateur
@@ -95,7 +95,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
 
         <div className="text-center bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-6 sm:p-8 md:p-12 border-2 border-primary/20">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground mb-3 sm:mb-4 leading-tight px-2">
-            Tout Cela <span className="text-accent">100% GRATUIT</span>
+            Tout cela <span className="text-accent">100% gratuit</span>
           </h3>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
             Ne manquez pas cette opportunité unique de transformer votre passion en business
@@ -107,7 +107,7 @@ export const WhatYouGetSection = ({ onRegisterClick }: WhatYouGetSectionProps) =
               onClick={onRegisterClick}
               className="text-sm sm:text-base md:text-lg shadow-elegant animate-float px-4 sm:px-6 py-2.5 sm:py-3 whitespace-normal break-words max-w-xs sm:max-w-sm"
             >
-              🎯 Je Réserve Ma Place Gratuitement
+              🌟 Je réserve ma place gratuitement
             </Button>
           </div>
         </div>

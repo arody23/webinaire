@@ -9,27 +9,27 @@ interface WhyAttendSectionProps {
 export const WhyAttendSection = ({ onRegisterClick }: WhyAttendSectionProps) => {
   const reasons = [
     {
-      title: "Accès à un Produit Révolutionnaire",
+      title: "Accès à un produit révolutionnaire",
       description: "Découvrez en exclusivité la plateforme qui va transformer le marketing d'influence en Afrique",
     },
     {
-      title: "Stratégies de Monétisation Prouvées",
+      title: "Stratégies de monétisation prouvées",
       description: "Apprenez comment générer des revenus stables et prévisibles avec votre audience",
     },
     {
-      title: "Accompagnement d'un Expert",
+      title: "Accompagnement d'un expert",
       description: "Bénéficiez de l'expérience d'Aroman Emetshu, influenceur avec +100K abonnés",
     },
     {
-      title: "Réseau de Créateurs Africains",
+      title: "Réseau de créateurs africains",
       description: "Connectez-vous avec d'autres créateurs de contenu ambitieux de tout le continent",
     },
     {
-      title: "Session Interactive en Direct",
+      title: "Session interactive en direct",
       description: "Posez vos questions et obtenez des réponses personnalisées en temps réel",
     },
     {
-      title: "Indépendance Financière",
+      title: "Indépendance financière",
       description: "Prenez le contrôle de votre avenir et créez votre propre succès",
     },
   ];
@@ -45,7 +45,7 @@ export const WhyAttendSection = ({ onRegisterClick }: WhyAttendSectionProps) => 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6">
-            Pourquoi C'est <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Important</span> ?
+            Pourquoi c'est <span className="text-accent">important</span> ?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ce webinaire va vous donner les clés pour transformer votre passion en source de revenus durable
@@ -85,7 +85,7 @@ export const WhyAttendSection = ({ onRegisterClick }: WhyAttendSectionProps) => 
             onClick={onRegisterClick}
             className="text-lg shadow-elegant animate-pulse-slow"
           >
-            Je Veux Participer Maintenant
+            Je veux participer maintenant
           </Button>
         </div>
       </div>

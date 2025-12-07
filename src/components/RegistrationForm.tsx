@@ -167,7 +167,7 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
           messageContainer.innerHTML = `
             <div class="text-center space-y-3 mt-6">
               <div class="text-4xl">🎉</div>
-              <h3 class="text-xl font-bold text-foreground">Inscription Confirmée !</h3>
+              <h3 class="text-xl font-bold text-foreground">Inscription confirmée !</h3>
               <p class="text-muted-foreground">Vous allez recevoir un message WhatsApp avec tous les détails du webinaire.<br/>À très bientôt !</p>
             </div>
           `;
@@ -198,7 +198,7 @@ export const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
   return (
     <Card className="max-w-md mx-auto border-primary/20 bg-card/50 backdrop-blur">
       <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-bold">Inscrivez-vous Maintenant</CardTitle>
+        <CardTitle className="text-3xl font-bold">Inscrivez-vous maintenant</CardTitle>
         <CardDescription className="text-base">
           Remplissez le formulaire pour réserver votre place au webinaire exclusif
         </CardDescription>

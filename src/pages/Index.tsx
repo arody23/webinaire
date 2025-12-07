@@ -31,7 +31,7 @@ const Index = () => {
 
       <footer className="py-8 border-t border-border/50">
         <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2024 Aroman Emetshu - Orbis Creativa Agency. Tous droits réservés.</p>
+          <p>© 2025 Aroman Emetshu. Tous droits réservés.</p>
         </div>
       </footer>
     </div>

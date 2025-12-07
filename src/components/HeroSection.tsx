@@ -32,19 +32,19 @@ export const HeroSection = ({ onRegisterClick }: HeroSectionProps) => {
           <div className="flex justify-center">
             <Badge className="bg-accent/20 text-accent border-accent/30 px-6 py-2 text-sm font-semibold animate-pulse-slow">
               <Sparkles className="w-4 h-4 mr-2" />
-              Places Limitées - Webinaire Exclusif
+              Places limitées - webinaire exclusif
             </Badge>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight px-2">
-            <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-              Monétisez Votre Audience
-            </span>
+            <span className="text-foreground">L'</span><span className="text-accent">Influence</span><span className="text-foreground">, c'est du pouvoir :</span>
             <br />
-            <span className="text-foreground">
-              Et Devenez Indépendant
-            </span>
+            <span className="text-foreground">Apprend à l'utiliser pour générer des</span>
+            <br />
+            <span className="text-foreground">revenus durables et prends le </span><span className="text-accent">contrôle</span>
+            <br />
+            <span className="text-foreground">de ton avenir financier.</span>
           </h1>
 
           {/* Subheadline */}
@@ -92,7 +92,7 @@ export const HeroSection = ({ onRegisterClick }: HeroSectionProps) => {
             onClick={onRegisterClick}
             className="text-lg shadow-elegant"
           >
-            Réserver Ma Place Maintenant
+            Réserver ma place
           </Button>
           </div>
         </div>

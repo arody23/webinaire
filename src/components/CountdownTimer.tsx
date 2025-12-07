@@ -17,8 +17,8 @@ export const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    // Set target date to December 20, 2025
-    const targetDate = new Date("2025-12-20T00:00:00").getTime();
+    // Set target date to December 21, 2025 at 20:00 GMT
+    const targetDate = new Date("2025-12-21T20:00:00Z").getTime();
 
     const calculateTimeLeft = () => {
       const difference = targetDate - new Date().getTime();

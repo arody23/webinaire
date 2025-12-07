@@ -30,7 +30,7 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
               {/* Main Message */}
               <div>
                 <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
-                  Le Webinaire Commence <span className="text-accent">Bientôt</span>
+                  Le webinaire commence <span className="text-accent">bientôt</span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
                   Ne manquez pas cette opportunité unique. Inscrivez-vous maintenant avant qu'il ne soit trop tard !
@@ -50,8 +50,8 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
                       <Calendar className="w-6 h-6 text-accent" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-1">En Direct</div>
-                  <p className="text-sm text-muted-foreground">Session Interactive</p>
+                  <div className="text-3xl font-bold text-primary mb-1">En direct</div>
+                  <p className="text-sm text-muted-foreground">Session interactive</p>
                 </div>
 
                 <div className="text-center">
@@ -60,8 +60,8 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
                       <Clock className="w-6 h-6 text-primary" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-accent mb-1">100% GRATUIT</div>
-                  <p className="text-sm text-muted-foreground">Valeur Inestimable</p>
+                  <div className="text-3xl font-bold text-accent mb-1">100% gratuit</div>
+                  <p className="text-sm text-muted-foreground">Valeur inestimable</p>
                 </div>
               </div>
 
@@ -73,7 +73,7 @@ export const UrgencySection = ({ onRegisterClick }: UrgencySectionProps) => {
                   onClick={onRegisterClick}
                   className="text-lg shadow-elegant"
                 >
-                  Je Réserve Ma Place Gratuite
+                  Je réserve ma place gratuite
                 </Button>
                 <p className="text-sm text-muted-foreground">
                   ⏰ Ne manquez pas cette opportunité unique

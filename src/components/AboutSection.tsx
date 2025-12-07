@@ -19,7 +19,7 @@ export const AboutSection = () => {
             Aroman Emetshu
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Expert en marketing d'influence avec plus de 5 ans d'expérience
+            Media Buyer et passionné de marketing
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export const AboutSection = () => {
                     Expert Certifié
                   </Badge>
                   <h3 className="text-2xl font-bold text-foreground mb-2">Aroman Emetshu</h3>
-                  <p className="text-muted-foreground">CEO Orbis Creativa Agency</p>
+                  <p className="text-muted-foreground">Media Buyer et consultant en Meta Ads</p>
                 </div>
               </div>
             </CardContent>

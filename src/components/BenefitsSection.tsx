@@ -6,42 +6,42 @@ export const BenefitsSection = () => {
   const benefits = [
     {
       icon: DollarSign,
-      title: "Monétisation Immédiate",
+      title: "Monétisation immédiate",
       description: "Transformez votre audience en revenus dès aujourd'hui",
       color: "text-accent",
       bgColor: "bg-accent/10",
     },
     {
       icon: TrendingUp,
-      title: "Croissance Garantie",
+      title: "Croissance garantie",
       description: "Stratégies éprouvées pour développer votre influence",
       color: "text-primary",
       bgColor: "bg-primary/10",
     },
     {
       icon: Zap,
-      title: "Outils Révolutionnaires",
+      title: "Outils révolutionnaires",
       description: "Accédez à la plateforme qui change tout",
       color: "text-accent",
       bgColor: "bg-accent/10",
     },
     {
       icon: Target,
-      title: "Indépendance Financière",
+      title: "Indépendance financière",
       description: "Prenez le contrôle de vos revenus",
       color: "text-primary",
       bgColor: "bg-primary/10",
     },
     {
       icon: Globe,
-      title: "Réseau Africain",
+      title: "Réseau africain",
       description: "Rejoignez une communauté de créateurs engagés",
       color: "text-accent",
       bgColor: "bg-accent/10",
     },
     {
       icon: Rocket,
-      title: "Support Expert",
+      title: "Support expert",
       description: "Accompagnement personnalisé par Aroman Emetshu",
       color: "text-primary",
       bgColor: "bg-primary/10",
@@ -56,7 +56,7 @@ export const BenefitsSection = () => {
             Ce que vous allez découvrir
           </Badge>
           <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">
-            Pourquoi Participer à Ce Webinaire ?
+            Pourquoi participer à ce webinaire ?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Un événement unique qui va révolutionner votre approche du marketing d'influence
